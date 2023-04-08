@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "40632527442",
+    "project_id": "cateract-detector",
+    "storage_bucket": "cateract-detector.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:40632527442:android:853bc03a8dd898882c4d8b",
+        "android_client_info": {
+          "package_name": "com.example.cateract_detector"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "40632527442-nj0huemq1ga28jcvamfltts3fmuk52k5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCujI38EXJlMubUaWkoPppx-dgI8ZpdDRk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "40632527442-nj0huemq1ga28jcvamfltts3fmuk52k5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
