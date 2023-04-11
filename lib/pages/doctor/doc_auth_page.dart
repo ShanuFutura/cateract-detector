@@ -106,7 +106,7 @@ class _AuthenticationPageState extends State<DocAuthPage> {
                 Padding(
                   padding: const EdgeInsets.all(15),
                   child: MaterialButton(
-                    child: Text('create account'),
+                    
                     color: Colors.blue.withOpacity(.5),
                     onPressed: () async {
                       try {
@@ -136,6 +136,7 @@ class _AuthenticationPageState extends State<DocAuthPage> {
                     },
                     height: 50,
                     minWidth: double.infinity,
+                    child: const Text('create account'),
                   ),
                 )
               ],

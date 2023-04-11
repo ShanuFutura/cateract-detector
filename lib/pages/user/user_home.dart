@@ -80,7 +80,7 @@ class _UserHomePageState extends State<UserHomePage> {
                                 )));
                   },
             child: AnimatedContainer(
-              duration: Duration(milliseconds: 300),
+              duration:const  Duration(milliseconds: 300),
               color: isListEmpty
                   ? Colors.white.withOpacity(0)
                   : Colors.white.withOpacity(.5),
@@ -124,7 +124,7 @@ class _UserHomePageState extends State<UserHomePage> {
                                 value: snapshot.data),
                           ],
                         )
-                      : SizedBox();
+                      : const SizedBox();
                 }),
           if (!uploading) uploadButton()
         ],

@@ -3,7 +3,6 @@ import 'package:cateract_detector/pages/doctor/detailed_report_view.dart';
 import 'package:cateract_detector/pages/login_page.dart';
 import 'package:cateract_detector/services/firebase_services.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
@@ -55,7 +54,7 @@ class _DoctorHomePageState extends State<DoctorHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Requests'),
+        title:const Text('Requests'),
         actions: [
           IconButton(
             onPressed: () async{
@@ -115,7 +114,7 @@ class _DoctorHomePageState extends State<DoctorHomePage> {
                       subtitle: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          SizedBox(
+                        const  SizedBox(
                             height: 5,
                           ),
                           Text(snap.data![index]['detection']
@@ -138,8 +137,8 @@ class _DoctorHomePageState extends State<DoctorHomePage> {
                                   ),
                                 );
                               },
-                              child: Text('Consult'))
-                          : Text('Consulted'),
+                              child: const Text('Consult'))
+                          : const Text('Consulted'),
                     ),
                   );
                 },

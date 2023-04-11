@@ -1,4 +1,4 @@
-import 'package:cateract_detector/constants.dart';
+
 import 'package:cateract_detector/services/firebase_services.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -37,7 +37,7 @@ class DoctorsListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Doctors'),
+        title:const  Text('Doctors'),
       ),
       body: FutureBuilder(
           future: getData(),

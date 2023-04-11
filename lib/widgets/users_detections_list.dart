@@ -64,7 +64,7 @@ class UsersDetectionList extends StatelessWidget {
                                   : Colors.white.withOpacity(.4),
                           borderRadius: BorderRadius.circular(20),
                         ),
-                        padding: EdgeInsets.all(20),
+                        padding:const  EdgeInsets.all(20),
                         // height: 200,
                         width: double.infinity,
                         // margin: EdgeInsets.all(15),
@@ -79,7 +79,7 @@ class UsersDetectionList extends StatelessWidget {
                                     snap.data!.docs[index].data()['image'],
                                     fit: BoxFit.cover,
                                   )),
-                              SizedBox(
+                             const  SizedBox(
                                 height: 20,
                               ),
                               Text(snap.data!.docs[index]

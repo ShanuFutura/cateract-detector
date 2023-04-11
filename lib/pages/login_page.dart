@@ -66,7 +66,7 @@ class _AuthenticationPageState extends State<LoginPage> {
             Padding(
               padding: const EdgeInsets.all(15),
               child: MaterialButton(
-                child: Text('Login'),
+               
                 color: Colors.blue.withOpacity(.5),
                 onPressed: () async {
                   if (fkey.currentState!.validate()) {
@@ -79,19 +79,20 @@ class _AuthenticationPageState extends State<LoginPage> {
                         setState(() {});
                       }
                     } on FirebaseAuthException catch (err) {
+                     
                       print('err code :  ${err.code}');
                       if (err.code == 'user-not-found') {
                         Fluttertoast.showToast(
                             msg: 'No user found, try signing up');
-                      } else if (err.code == 'invalid-email') {
-                        Fluttertoast.showToast(
-                            msg: 'email address is badly formatted');
+                      } else {
+                        Fluttertoast.showToast(msg: '${err.message}');
                       }
                     }
                   }
                 },
                 height: 50,
                 minWidth: double.infinity,
+                 child: const Text('Login'),
               ),
             ),
             Padding(
@@ -110,7 +111,7 @@ class _AuthenticationPageState extends State<LoginPage> {
             Padding(
               padding: const EdgeInsets.all(15),
               child: MaterialButton(
-                child: Text('Signup'),
+               
                 color: Colors.blue.withOpacity(.5),
                 onPressed: () async {
                   showModalBottomSheet(
@@ -123,7 +124,7 @@ class _AuthenticationPageState extends State<LoginPage> {
                                 child: Text('Create account as?',
                                     style: TextStyle(fontSize: 25)),
                               ),
-                              SizedBox(
+                            const  SizedBox(
                                 height: 20,
                               ),
                               Row(
@@ -172,6 +173,7 @@ class _AuthenticationPageState extends State<LoginPage> {
                 },
                 height: 50,
                 minWidth: double.infinity,
+                 child: const Text('Signup'),
               ),
             ),
           ],

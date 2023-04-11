@@ -33,7 +33,7 @@ class AuthenticationTextField extends StatelessWidget {
           filled: true,
           label: Text(label),
           border: OutlineInputBorder(
-            borderSide: BorderSide(
+            borderSide:const BorderSide(
               color: Colors.transparent,
             ),
             borderRadius: BorderRadius.circular(20),

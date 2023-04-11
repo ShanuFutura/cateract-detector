@@ -8,6 +8,11 @@ import 'package:fluttertoast/fluttertoast.dart';
 
 import 'package:google_sign_in/google_sign_in.dart';
 
+import '../pages/admin/admin_home.dart';
+import '../pages/doctor/doctor_home_page.dart';
+import '../pages/loading_splash.dart';
+import '../pages/user/user_home.dart';
+
 class FirebaseServices {
   // static emailAuthentication(
   //     {required String email,
@@ -113,7 +118,7 @@ class FirebaseServices {
   //   });
   // }
 
-  static signOut()  async{
+  static signOut() async {
     FirebaseAuth.instance.signOut();
     // GoogleSignIn().signOut();
   }
@@ -170,7 +175,7 @@ class FirebaseServices {
         .collection('ScanReport')
         .doc(scanReportId)
         .update({'docId': docId});
-        Fluttertoast.showToast(msg: 'request sent');
+    Fluttertoast.showToast(msg: 'request sent');
   }
 
   static Future<UserType> getUserType(String uid) async {
@@ -180,25 +185,25 @@ class FirebaseServices {
         await FirebaseFirestore.instance.collection('Doctors').get();
     QuerySnapshot<Map<String, dynamic>> userSnap =
         await FirebaseFirestore.instance.collection('Patient').get();
-    UserType? user;try{
-
-for(QueryDocumentSnapshot<Map<String, dynamic>> element in docsSnap.docs){
- if (element.id == uid) { 
-        Constants.username = element.data()['name'];
-        user = UserType.doctor;
+    UserType? user;
+    try {
+      for (QueryDocumentSnapshot<Map<String, dynamic>> element
+          in docsSnap.docs) {
+        if (element.id == uid) {
+          Constants.username = element.data()['name'];
+          user = UserType.doctor;
+        }
       }
-}
-for(QueryDocumentSnapshot<Map<String, dynamic>> element in  userSnap.docs){
-  if (element.id == uid) {
-        Constants.username = element.data()['name'];
-        user = UserType.patient;
+      for (QueryDocumentSnapshot<Map<String, dynamic>> element
+          in userSnap.docs) {
+        if (element.id == uid) {
+          Constants.username = element.data()['name'];
+          user = UserType.patient;
+        }
       }
-}
-    
-
-   }on Exception catch(err){
+    } on Exception catch (err) {
       print('exceptio caught: $err');
-      user= UserType.admin;
+      user = UserType.admin;
     }
 
     // print('detected username: ${Constants.username}');
@@ -208,5 +213,22 @@ for(QueryDocumentSnapshot<Map<String, dynamic>> element in  userSnap.docs){
     } else {
       return UserType.admin;
     }
+  }
+
+  static Future<void> loginByePass(BuildContext context) async {
+    late Widget targetPage;
+    UserType userType =
+        await FirebaseServices.getUserType(Constants.firebaseUser.uid);
+    if (userType == UserType.doctor) {
+      targetPage = const DoctorHomePage();
+    } else if (userType == UserType.patient) {
+      targetPage = const UserHomePage();
+    } else if (userType == UserType.admin) {
+      targetPage = const AdminHome();
+    } else {
+      targetPage = const LoadingSplash();
+    }
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (_) => targetPage));
   }
 }

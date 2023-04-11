@@ -47,7 +47,7 @@ class UsersList extends StatelessWidget {
                   );
                 });
           } else {
-            return Center(
+            return const  Center(
               child: Text('No data'),
             );
           }
